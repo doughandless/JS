@@ -1,0 +1,22 @@
+<meta charset="UTF-8">
+<script>
+
+    var loginCadastrado = "alura";
+    var senhaCadastrada = "alura321";
+    var chances = 1;
+    var maxChance = 3;
+        while(chances <= maxChance){
+    var loginInformado = prompt("Informe seu login");
+    var senhaInformada = prompt("Informe sua senha");
+            if( loginCadastrado == loginInformado && senhaCadastrada == senhaInformada ) {
+                
+        alert("Bem-vindo ao sistema " + loginInformado);
+        chances = maxChance;
+    } else {
+
+        alert("Login inválido. Tente novamente");
+     
+        chances = chances + 1;
+        }
+    }
+</script>
