@@ -1,0 +1,26 @@
+<meta charset="UTF-8">
+
+<script>
+    function pula(){
+        document.write("<br><br>");
+    }
+    function mostra(frase){
+        document.write(frase);
+        pula();
+    }
+ var quantPago = parseInt(prompt("Quantas contas foram pagas até agora?"));
+ 
+ var contas = 1;
+ var totalPago = 0;
+    while(contas<=quantPago){
+        var valorPag = parseInt(prompt("Entre com os valores das contas"));
+        totalPago = totalPago + valorPag
+        contas++;
+
+    }
+var media = totalPago / quantPago;
+mostra("A média do valor das contas foi de: " + Math.round(media));
+
+
+  mostra("FIM");  
+</script>
