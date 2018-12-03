@@ -25,4 +25,21 @@ if (pontos == 28){
 }
 
 mostra("FIM");
-</script>	
+</script>
+
+
+// basquete
+
+function pula (){
+    document.write("<br><br>");
+}
+function mostra (frase){
+    document.write(frase);
+    pula();
+}
+var nome = prompt ("Entre com o nome do seu jogador");
+var deuce = parseInt(prompt ("Entre com o número cestas de 2 pts"));
+var three = parseInt(prompt ("Entre com o número de cestas de 3 pts"));
+var pontos = (deuce * 2) + (three * 3);
+mostra(`Os pontos do ${nome} é ${pontos}`);
+
