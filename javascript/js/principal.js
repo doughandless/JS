@@ -1,9 +1,9 @@
 var titulo = document.querySelector(".titulo");	
 titulo.textContent = "Aparecida Nutricionista";
 
-var pacientes = document.querySelectorAll(".paciente"); //escolhe o primeiro paciente
+var pacientes = document.querySelectorAll(".paciente"); //escolhe todos os pacientes
 
-for (var i = 0; i < pacientes.length; i++){
+for (var i = 0; i < pacientes.length; i++){ // loop para correr por todos os pacientes
 
 		var paciente = pacientes[i];	
 	var tdPeso = paciente.querySelector(".info-peso"); //seleciona peso
@@ -14,29 +14,48 @@ for (var i = 0; i < pacientes.length; i++){
 
 	var tdImc = paciente.querySelector(".info-imc"); //selecionando a coluna do IMC
 
-	var pesoEhValido = true;
-	var alturaEhValida = true;
+	var pesoEhValido = validaPeso(peso);
+	var alturaEhValida = validaAltura(altura);
 
-	if (peso <= 0 || peso >= 1000 ){
+	if (!pesoEhValido){
 		console.log("Peso inválido!");
 		pesoEhValido = false;
 		paciente.classList.add("paciente-invalido");
 	}
-	if (altura < 0 || altura > 3.00){
+	if (!alturaEhValida){
 		console.log("Altura inválida!");
 		alturaEhValida = false;
 		paciente.classList.add("paciente-invalido");
 	}
 
 	if (alturaEhValida && pesoEhValido){
-	var imc = peso / (altura * altura);
-	tdImc.textContent = imc.toFixed(2);
+	var imc = calculaImc(peso, altura);
+	tdImc.textContent = imc;
 	}
 }
-	var botaoAdicionar = document.querySelector("#adicionar-paciente");
-	botaoAdicionar.addEventListener("click", function(event){
-    event.preventDefault();
 
-    var form = document.querySelector("#form-adiciona");
-});
+function validaPeso(peso){
 
+	if(peso >=0 && peso < 1000){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
+function validaAltura(altura){
+	if(altura >=0 && altura <= 3.0){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
+function calculaImc(peso, altura){
+	var imc = 0;
+	imc = peso / (altura * altura);
+
+	return imc.toFixed(2);
+}
