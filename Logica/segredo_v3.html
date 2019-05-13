@@ -3,16 +3,18 @@
 <button>Entre com o dígito</button>
 
 <script>
+    //função sorteia um número de 1 a 10
     function sorteia(){
         return Math.round(Math.random() * 10);
     }    
-        
+        //função para limitar quantidade de componenentes dentro da array
     function sorteiaNumeros (quantidade){
         var segredos = [];
         var numero = 1;
         
             while (numero <= quantidade){
             var numeroAleatorio = sorteia();
+                // retira o número 0 das possibilidades;
                  if(numeroAleatorio != 0){
                     var achou = false;
                 
